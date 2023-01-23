@@ -1,6 +1,7 @@
 # Build files
 *.class
 *.exe
+out/
 
 # Cached Python bytecode
 __pycache__/
