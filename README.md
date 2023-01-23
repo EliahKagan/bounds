@@ -12,21 +12,22 @@ is partitioned with respect to the new item. That weaker criterion is
 sufficient, and it is not necessary that the data be fully sorted.)
 
 The best way to achieve this varies by language. This shows some demonstration
-code in [Python](bounds.py) (usage), [C++](bounds.cpp) (usage), and
-[Java](bounds.java) (implementation and usage):
-
-- In Python, they are called
-  [`bisect.bisect_left`](https://docs.python.org/3/library/bisect.html#bisect.bisect_left)
-  and
-  [`bisect.bisect_right`](https://docs.python.org/3/library/bisect.html#bisect.bisect_right).
-  (`bisect.bisect` is another name for `bisect.bisect_right`.)
+code in [Python](bounds.py), [C++](bounds.cpp), and [Java](bounds.java):
 
 - In C++, these are called
   [`std::lower_bound`](https://en.cppreference.com/w/cpp/algorithm/lower_bound)
   and
   [`std::upper_bound`](https://en.cppreference.com/w/cpp/algorithm/upper_bound).
   ([`std::equal_range`](https://en.cppreference.com/w/cpp/algorithm/equal_range)
-  is available if you want both.)
+  is available if you want both.) [`bounds.cpp`](bounds.cpp) just demonstrates
+  the standard library functions; it doesn't reimplement them.
+
+- In Python, they are called
+  [`bisect.bisect_left`](https://docs.python.org/3/library/bisect.html#bisect.bisect_left)
+  and
+  [`bisect.bisect_right`](https://docs.python.org/3/library/bisect.html#bisect.bisect_right).
+  (`bisect.bisect` is another name for `bisect.bisect_right`.) But I've
+  reimplemented with the C++ names in [`bounds.py`](bounds.py).
 
 - In Java, the standard library does not offer them. (It offers binary search,
   but not these forms of it.) But they can be implemented without trouble, as

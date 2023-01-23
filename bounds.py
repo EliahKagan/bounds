@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (c) 2021 Eliah Kagan
+# Copyright (c) 2021, 2023 Eliah Kagan
 #
 # Permission to use, copy, modify, and/or distribute this software for any
 # purpose with or without fee is hereby granted.
@@ -13,8 +13,19 @@
 # OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 # PERFORMANCE OF THIS SOFTWARE.
 
+"""
+Reimplementations of the bisect_left and bisect_right functions.
+
+The naming convention from C++ is used, rather than the Python convention
+(originally for recognizability to C++ programmers).
+
+This is for demonstration purposes. You should use the functions in the bisect
+module when you need this functionality in Python.
+"""
+
 
 def lower_bound(items, key):
+    """Reimplementation of bisect.bisect_left."""
     low = 0
     high = len(items)
 
@@ -30,6 +41,7 @@ def lower_bound(items, key):
 
 
 def upper_bound(items, key):
+    """Reimplementation of bisect.bisect_right."""
     low = 0
     high = len(items)
 
@@ -45,6 +57,7 @@ def upper_bound(items, key):
 
 
 def test(items, key):
+    """Simple test of lower_bound and upper_bound."""
     lb_index = lower_bound(items, key)
     print(f'Lower bound for "{key}": {lb_index}')
 
@@ -53,6 +66,7 @@ def test(items, key):
 
 
 def run():
+    """Run tests with various search words."""
     words = ['foo', 'bar', 'baz', 'quux', 'foobar', 'ham', 'spam', 'eggs', 'speggs']
     words.sort()
 
